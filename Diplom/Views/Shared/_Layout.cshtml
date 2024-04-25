@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/Resources/Images/IconCrystall.png" type="image/png" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+   
+    <header>
+        <nav class="navbar border-bottom">
+            <div style="width:64px;height:64px;">
+                <a href="/">
+                    <img class="icon" src="~/Resources/Images/IconCrystall.png">
+                </a>
+
+               
+            </div>
+            <div class="navbar-nav-right-div">
+                <ul class="navbar-nav">
+                    <li>
+                        <button class="menu-btn btn-anim" dropdown-button>
+                            <img src="~/Resources/Images/MenuIcon.png" style="width:32px;height:32px;" />
+
+                        </button>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="login-container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer">
+        <div class="footer-container">
+            &copy; 2024 - За гранью -
+            <a href="https://vk.com/beyondtheedgethegame">
+                <img class="footer-icon" src="~/Resources/Images/icons8-vk-48.png" />
+            </a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

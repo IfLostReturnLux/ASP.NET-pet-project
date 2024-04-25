@@ -1,0 +1,337 @@
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    flex: 1 0 auto;
+    font-size: 16px;
+    color: #c8edef;
+}
+
+body {
+    margin-bottom: 60px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #1c202a;
+
+}
+
+h {
+    color: #7cc1c4;
+}
+
+a {
+    color: #7cc1c4;
+    text-decoration: none;
+}
+.login-body {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-nav {
+    position: relative;
+    list-style: none;
+}
+
+.navbar-nav-right {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    list-style: none;
+    width: 5em;
+    height: 2em;
+    padding-right: 16px;
+}
+
+.navbar-nav-right-div {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 5em;
+    height: 2em;
+    padding-right: 16px;
+    justify-content:right;
+    width:100%;
+    
+}
+
+.link {
+    text-decoration: none;
+    color: #9bd0d3;
+}
+
+
+.navbar {
+    display:flex;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 75px;
+    font-size: 22px;
+    background: #2b3245;
+}
+.icon {
+    height: 64px;
+    width: 40px;
+    padding: 4px;
+}
+
+.background-icon {
+    height: 1280px;
+    width: 1280px;
+    padding: 4px;
+    opacity:50%;
+}
+
+.border-bottom {
+    border-bottom: 2px solid cadetblue !important;
+}
+
+.border-top {
+    border-top: 2px solid cadetblue !important;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+    font-size: 24px;
+    text-align:center;
+    padding-top:15px;
+}
+
+.container-horizontal {
+    display: inline-flex;
+    justify-content:space-between;
+    width:100%;
+}
+
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    background: #2b3245;
+}
+.footer-container {
+    display:inline-flex;
+    padding-top: 15px;
+}
+
+.footer-icon {
+    width: 32px;
+    height: 32px;
+    padding-left:8px;
+}
+.center{
+    text-align:center;
+}
+
+main .hidden-block {
+    display: none;
+    border: 1px solid #c8edef;
+    margin-top: 10px;
+}
+
+main .container {
+    width:auto;
+    text-align:center;
+}
+main input:not([type="submit"]) {
+    width: 310px;
+    padding: 5px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid ;
+    margin-top: 7px;
+    background: #2b3245;
+}
+main label{
+    margin-top:10px;
+    display:block;
+}
+main .submitButton {
+    text-align: center;
+    width: 160px;
+    height: 35px;
+    font-size: 20px;
+    margin-top: 15px;
+    background: #2b3245;
+    color: #c8edef;
+}
+main span {
+    display: block;
+    color:black;
+}
+main .table-column {
+    padding-left: 8px;
+    border-block:solid;
+    border-block-end:unset;
+}
+
+main input {
+    color: #c8edef;
+}
+
+
+.btn {
+    box-sizing: border-box;
+    
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #7cc1c4;
+    border-radius: 0.6em;
+    color: #7cc1c4;
+    cursor: pointer;
+    align-self: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1;
+    margin:6px;
+    padding: 1em 1em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.menu-btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #7cc1c4;
+    border-radius: 0.6em;
+    color: #7cc1c4;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    align-self: center;
+    line-height: 1;
+}
+
+.btn-anim {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+    .btn-anim:hover {
+        box-shadow: 0 0 40px 40px #7cc1c4 inset;
+    }
+
+.btn:hover {
+    color: #fff;
+    outline: 0;
+}
+.btn:focus {
+    color: #fff;
+    outline: 0;
+}
+
+.floating-icon {
+    height: calc(var(--floating-icon-size) * 1px);
+    width: calc(var(--floating-icon-size) * 1px);
+    position: absolute;
+    top: var(--floating-icon-top);
+    left: var(--floating-icon-left);
+    background-color: var(--border-color);
+    border-radius: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-time) var(--transition-timing);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-open-popup {
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-open-popup:hover {
+        background-color: #4caf50;
+    }
+
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup-box {
+    background: #2b3245;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 320px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.btn-submit,
+.btn-close-popup {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-close-popup {
+    margin-top: 12px;
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+    .btn-submit:hover,
+    .btn-close-popup:hover {
+        background-color: #4caf50;
+    }
+
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for popup */
+.overlay-container.show {
+    display: flex;
+    opacity: 1;
+} 

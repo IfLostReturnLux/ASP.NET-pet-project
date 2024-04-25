@@ -1,0 +1,20 @@
+﻿@model AuthorizationModel
+@{
+    ViewData["Title"] = "Beyond The Edge";
+}
+
+<div class="container">
+    <p>Добро пожаловать!</p>
+    <form method="post" asp-controller="Login" asp-action="LoginCheck">
+        <label asp-for="Login"></label>
+        <input asp-for="Login" />
+        <span asp-validation-for="Login"></span>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+        <br>
+        <input class="submitButton" type="submit" value="Войти" />
+    </form>
+</div>
+

@@ -1,0 +1,99 @@
+﻿@model AdminPageModel
+@{
+    ViewData["Title"] = "Beyond The Edge";
+}
+
+<div>
+    <div class="center">
+        <p>Главная страница администратора</p>
+        <button class="show-block btn btn-anim" data-target="role-block">Открыть панель с ролями</button>
+        <button class="show-block btn btn-anim" data-target="users-block">Открыть панель с пользователями</button>
+    </div>
+    <div id="role-block" class="hidden-block" style="display:none">
+        <div>
+            <button class="new-role-button btn btn-anim">Создать роль</button>
+        </div>
+        <table>
+            <thead>
+                <th class ="table-column">
+                    Роль:
+                </th>
+            </thead>
+            <tbody>
+
+                @if (Model.RoleList != null)
+                {
+                    for (int i = 0; i < Model.RoleList.Count; i++)
+                    {
+                        <tr>
+                            <td class="table-column"> @Model.RoleList[i].ToString() </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div id="users-block" class="hidden-block" style="display:none">
+        <div>
+            <button class="show-popup btn btn-anim" data-target="newUserPopupOverlay">Создать нового пользователя</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="table-column"> Имя: </th>
+                    <th class="table-column"> Логин: </th>
+                    <th class="table-column"> Роль: </th>
+                </tr>
+            </thead>
+            <tbody>
+             @if (Model.UsersList != null)
+             {
+                 for(int i = 0; i < Model.UsersList.Count; i++)
+                 {
+                 <tr>
+                 <td class="table-column"> @Model.UsersList[i].Name.ToString() </td>
+                 <td class="table-column">@Model.UsersList[i].Login.ToString() </td> 
+                 <td class="table-column">@Model.UsersList[i].Role.ToString() </td> 
+                 </tr>
+                 }
+             }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="newUserPopupOverlay"
+     class="overlay-container">
+    <div class="popup-box">
+        <h2>Создание нового пользователя!</h2>
+        <form class="form-container" asp-controller="Home" asp-action="CreateNewUser">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="fo\rm-input" type="text" placeholder="Enter Your Username">
+            <span asp-validation-for="Name"></span>
+
+            <label asp-for="Login" class="form-label"></label>
+            <input asp-for="Login" class="form-input" type="text" placeholder="Enter Your Username">
+            <span asp-validation-for="Login"></span>
+
+            <label asp-for="Role" class="form-label"></label>
+            <input asp-for="Role" class="form-input" type="text" placeholder="Enter Your Username">
+            <span asp-validation-for="Role"></span>
+
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-input" type="text" placeholder="Enter Your Username">
+            <span asp-validation-for="Password"></span>
+
+            <input class ="btn btn-anim" type="submit" value="Создать">
+            
+        </form>
+
+        <button class="btn-close-popup"
+                onclick="togglePopup()">
+            Close
+        </button>
+    </div>
+</div>
+
+<script src="~/js/adminPage.js" asp-append-version="true"></script>
