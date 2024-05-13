@@ -1,4 +1,22 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var dropdownButtons = document.querySelectorAll(".dropdown-button")
 
-// Write your JavaScript code.
+dropdownButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+        var dropdownContent = button.getAttribute('data-target');
+        console.log(dropdownContent);
+        document.getElementById(dropdownContent).classList.toggle('show');
+    })
+})
+
+function StorageData() {
+    $.ajax({
+        type: "POST",
+        url: "/Storage",
+        success: function (result) {
+            result.forEach((key, element) => {
+                console.log(key,element)
+                localStorage.setItem(key,element)
+            })
+        }
+    })
+}

@@ -1,0 +1,121 @@
+﻿@model AdminPageModel
+@{
+    ViewData["Title"] = "Админ панель";
+    Layout = "_Layout";
+}
+
+<div>
+    <div class="center">
+        <h1>Главная страница администратора</h1>
+        <button class="show-block btn btn-anim" data-target="role-block">Открыть панель с ролями</button>
+        <button class="show-block btn btn-anim" data-target="users-block">Открыть панель с пользователями</button>
+    </div>
+    <div id="role-block" class="hidden-block" style="display:none">
+        <div>
+            <button class="show-popup btn btn-anim" data-target="newRolePopupOverlay">Создать роль</button>
+            <button class="btn btn-red btn-anim-red">Удалить</button>
+        </div>
+        <table>
+            <thead>
+            <th class="table-column">
+                Роль:
+            </th>
+            </thead>
+            <tbody>
+
+                @if (Model.RoleList != null)
+                {
+                    for (int i = 0; i < Model.RoleList.Count; i++)
+                    {
+                        <tr>
+                            <td class="table-column"> @Model.RoleList[i].ToString() </td>
+                            <button class="x-btn" style="display:none">X</button>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div id="users-block" class="hidden-block" style="display:none">
+        <div>
+            <button class="show-popup btn btn-anim" data-target="newUserPopupOverlay">Создать нового пользователя</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="table-column"> Имя: </th>
+                    <th class="table-column"> Логин: </th>
+                    <th class="table-column"> Роль: </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.UsersList != null)
+                {
+                    for (int i = 0; i < Model.UsersList.Count; i++)
+                    {
+                        <tr>
+                            <td class="table-column"> @Model.UsersList[i].Name.ToString() </td>
+                            <td class="table-column">@Model.UsersList[i].Login.ToString() </td>
+                            <td class="table-column">@Model.UsersList[i].Role.ToString() </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="newUserPopupOverlay"
+     class="overlay-container">
+    <div class="popup-box">
+        <h2>Создание нового пользователя!</h2>
+        <form class="form-container" method="post" asp-controller="Admin" asp-action="CreateNewUser">
+            <label asp-for="@Model.Name" class="form-label"></label>
+            <input required="required" asp-for="@Model.Name" class="form-input" type="text" placeholder="Enter Username">
+            <span asp-validation-for="@Model.Name"></span>
+            <label asp-for="@Model.Role" class="form-label"></label>
+            <select asp-for="@Model.Role">
+                @foreach (var role in Model.RoleList)
+                {
+                    <option value="@role">@role</option>
+                }
+            </select>
+
+            <label asp-for="@Model.Login" class="form-label"></label>
+            <input required="required" asp-for="@Model.Login" class="form-input" type="text" placeholder="Enter Login">
+            <span asp-validation-for="@Model.Login"></span>
+
+            <label asp-for="@Model.Password" class="form-label"></label>
+            <input required="required" asp-for="@Model.Password" class="form-input" type="text" placeholder="Enter Password">
+            <span asp-validation-for="@Model.Password"></span>
+
+            <input class="btn btn-anim" type="submit" value="Создать">
+        </form>
+
+        <button class="show-popup btn btn-red btn-anim-red" data-target="newUserPopupOverlay">
+            Закрыть
+        </button>
+    </div>
+</div>
+
+<div id="newRolePopupOverlay"
+     class="overlay-container">
+    <div class="popup-box">
+        <h2>Создание новой роли!</h2>
+        <form class="form-container" asp-controller="Admin" asp-action="CreateNewRole" method="post">
+            <label asp-for="@Model.Role" class="form-label"></label>
+            <input asp-for="@Model.Role" required="required" class="form-input" type="text" placeholder="Enter New Role" />
+
+            <input class="btn btn-anim" type="submit" value="Создать">
+
+        </form>
+
+        <button class="show-popup btn btn-red btn-anim-red" data-target="newRolePopupOverlay">
+            Закрыть
+        </button>
+    </div>
+</div>
+
+<script src="~/js/adminPage.js" asp-append-version="true"></script>

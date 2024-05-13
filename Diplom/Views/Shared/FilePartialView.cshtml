@@ -1,0 +1,17 @@
+﻿@model FilePageModel
+@{
+}
+
+@foreach (var directory in Model.DirectoriesName)
+{
+    <div class="folder">
+        <img src="/Resources/Images/folder.png" />
+        <p id="name">@directory</p>
+    </div>
+}
+@foreach (var file in Model.FilesName)
+{
+    <div>
+        <p id="name">@file</p>
+    </div>
+}

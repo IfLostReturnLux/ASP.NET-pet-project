@@ -1,0 +1,14 @@
+﻿@model HomePageModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="center">
+    <h1>Добро пожаловать в систему контроля доступа by IfLostReturnLux (студент КСК-20)</h1>
+    <h1>Доступные действия</h1>
+    @foreach (var button in Model.Buttons)
+    {
+        <a class="btn btn-anim" href="@button.Value">@button.Key</a>
+    }
+    <a class="btn btn-anim" href="/File">Файлы</a>
+</div>

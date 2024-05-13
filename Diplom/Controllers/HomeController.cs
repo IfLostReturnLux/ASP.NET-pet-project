@@ -2,11 +2,8 @@ using Diplom.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using static Diplom.AppDbContext;
-using System.Linq;
-using IdentityServer4.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Diplom.Views.Shared;
 
 namespace Diplom.Controllers
 {
@@ -14,44 +11,49 @@ namespace Diplom.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
         {
             _logger = logger;
             _dbContext = new AppDbContext();
+            _webHostEnvironment = webHostEnvironment;
+            LogsController.Path = _webHostEnvironment.ContentRootPath + @"\logs.txt";
         }
         
         public IActionResult Index()
         {
-            return View();
+            if(User.Identity.IsAuthenticated)
+            {
+                HomePageModel model = new HomePageModel();
+                string[] roles = User.FindFirst("Roles").Value.Split(',');
+                foreach (string role in roles) 
+                {
+                    if (role == "admin")
+                    {
+                        model.Buttons.Add("Админ-панель","/" + role);
+                    }
+                }
+                return View("AuthorizedHome", model);
+            }
+            else
+            {
+                return View();
+            }
         }
-
-        [HttpGet]
-        [Authorize(Roles = "admin")]
-        public IActionResult adminPage()
+        [Authorize]
+        public IActionResult Profile ()
         {
-            var roles = _dbContext.rolelist;
-            List<string> rolesList = roles.Select(role => role.Name).ToList();
-
-            var users = _dbContext.users;
-            List<UserData> usersList = users.ToList();
-
-            AdminPageModel model = new AdminPageModel();
-            model.RoleList = rolesList;
-            model.UsersList = usersList;
+            UserModel model = new UserModel();
+            model.Name = User.FindFirst(ClaimTypes.Name).Value.ToString();
+            model.Role = User.FindFirst("Roles").Value.ToString();
+            model.Login = User.FindFirst("Login").Value.ToString();
+            
             return View(model);
         }
-        [Authorize(Roles = "user")]
-        public IActionResult userPage()
-        {
-            return View();
-        }
-        
-        public IActionResult Logout()
-        {
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index");
-        }
+
+
+        [Authorize]
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

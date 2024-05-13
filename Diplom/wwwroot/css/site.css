@@ -16,9 +16,11 @@ html {
 body {
     margin-bottom: 60px;
     font-size: 18px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Microsoft Sans Serif';
     background: #1c202a;
-
+}
+p {
+    font-size: 18px;
 }
 
 h {
@@ -29,6 +31,25 @@ a {
     color: #7cc1c4;
     text-decoration: none;
 }
+
+select {
+    color: #c8edef;
+    font-size: 16px;
+    width:325px;
+    padding: 5px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-top: 7px;
+    background: #2b3245;
+}
+
+#menu-content {
+    position: absolute;
+    top: 50px;
+    right:0px;
+}
+
 .login-body {
     width: 100%;
     height: 100%;
@@ -178,6 +199,7 @@ main .table-column {
 
 main input {
     color: #c8edef;
+    margin:5px;
 }
 
 
@@ -203,18 +225,30 @@ main input {
     font-weight: 700;
 }
 
+.btn-red {
+    border: 2px solid red;
+    color: red;
+}
+
 .menu-btn {
     box-sizing: border-box;
-    appearance: none;
     background-color: transparent;
     border: 2px solid #7cc1c4;
-    border-radius: 0.6em;
+    border-radius: 0.3em;
     color: #7cc1c4;
     height: 48px;
     width: 48px;
     cursor: pointer;
-    align-self: center;
-    line-height: 1;
+    margin-bottom:10px;
+}
+
+.btn-anim-red {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.btn-anim-red:hover {
+    box-shadow: 0 0 40px 40px red inset;
+}
 }
 
 .btn-anim {
@@ -250,20 +284,6 @@ main input {
     justify-content: center;
 }
 
-.btn-open-popup {
-    padding: 12px 24px;
-    font-size: 18px;
-    background-color: green;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-    .btn-open-popup:hover {
-        background-color: #4caf50;
-    }
 
 .overlay-container {
     display: none;
@@ -296,27 +316,6 @@ main input {
     flex-direction: column;
 }
 
-
-.btn-submit,
-.btn-close-popup {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-close-popup {
-    margin-top: 12px;
-    background-color: #e74c3c;
-    color: #fff;
-}
-
-    .btn-submit:hover,
-    .btn-close-popup:hover {
-        background-color: #4caf50;
-    }
-
 /* Keyframes for fadeInUp animation */
 @keyframes fadeInUp {
     from {
@@ -334,4 +333,92 @@ main input {
 .overlay-container.show {
     display: flex;
     opacity: 1;
-} 
+}
+
+
+.dropdown-content {
+    display: none;
+    background-color: #1c202a;
+    width:120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-align{
+    top:100px;
+}
+
+.dropdown-content div {
+    padding: 5px;
+    border-bottom: solid 1px #7cc1c4;
+}
+        .dropdown-content div:hover {
+            background-color: #546080;
+        }
+    .dropdown-content a {
+        padding: 2px;
+        color: #c8edef;
+    }
+        .dropdown-content a:hover {
+            background-color: #546080;
+        }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* »зменение цвета выпадающих ссылок при наведении курсора */
+
+/* ѕоказать выпадающее меню при наведении курсора */
+/*.dropdown:hover .dropdown-content {
+    display: block;
+}*/
+
+.dropdown-item :hover {
+    background-color: #546080;
+}
+.dropdown-item :focus {
+    background-color: #414a62;
+}
+.show {
+    display:block;
+}
+.UserInfo {
+    height:600px;
+    border: 2px dashed #c8edef;
+    margin:20px;
+    padding:20px;
+}
+.flex{
+    display:flex
+}
+
+.file-viewer {
+    border: 2px solid #c8edef;
+    height:800px;
+}
+.folder{
+    display:flex;
+    cursor:pointer;
+}
+    .folder img {
+        height:48px;
+        width:48px;
+        padding:5px;
+    }
+    .folder:hover {
+        background: #2b3245;
+    }
+.file {
+    padding: 5px;
+    cursor: pointer;
+}
+    .file:hover {
+        background: #2b3245;
+    }
+
+#path{
+    padding-left:10px;
+    border-block-end:1px solid;
+}

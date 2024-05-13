@@ -1,6 +1,7 @@
 ﻿@model AuthorizationModel
 @{
-    ViewData["Title"] = "Beyond The Edge";
+    ViewData["Title"] = "Авторизация";
+    Layout = "_LoginLayout";
 }
 
 <div class="container">
@@ -9,12 +10,12 @@
         <label asp-for="Login"></label>
         <input asp-for="Login" />
         <span asp-validation-for="Login"></span>
-
+        
         <label asp-for="Password"></label>
         <input asp-for="Password"/>
         <span asp-validation-for="Password"></span>
         <br>
-        <input class="submitButton" type="submit" value="Войти" />
+        <input class="submitButton" type="submit" value="Войти"/>
     </form>
 </div>
 

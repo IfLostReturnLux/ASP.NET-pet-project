@@ -1,0 +1,33 @@
+﻿@model FilePageModel
+@{
+    Layout = "_Layout";
+}
+
+<div class="file-viewer">
+    <div>
+        <p id="path">PATH:/</p>
+    </div>
+    <div id="files">
+        @if (Model.DirectoriesName != null)
+        {
+            @foreach (var directory in Model.DirectoriesName)
+            {
+                <div class="folder">
+                    <img src="/Resources/Images/folder.png" />
+                    <p id="name">@directory</p>
+                </div>
+            }
+        }
+        @if (Model.FilesName != null){
+
+            @foreach (var file in Model.FilesName)
+            {
+                <div class="file">
+                    <p id="name">@file</p>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script src="/js/filePage.js" />

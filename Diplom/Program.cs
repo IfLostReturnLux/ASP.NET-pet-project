@@ -1,4 +1,5 @@
 using Diplom;
+using Diplom.Views.Shared;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 

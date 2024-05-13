@@ -15,17 +15,25 @@
                 <a href="/">
                     <img class="icon" src="~/Resources/Images/IconCrystall.png">
                 </a>
-
-               
             </div>
+
+            
+
             <div class="navbar-nav-right-div">
                 <ul class="navbar-nav">
                     <li>
-                        <button class="menu-btn btn-anim" dropdown-button>
-                            <img src="~/Resources/Images/MenuIcon.png" style="width:32px;height:32px;" />
-
-                        </button>
-
+                        <div>
+                            <div style="position:absolute; right:0px;">
+                                <button class="menu-btn dropdown-button btn-anim" data-target="menu-content">
+                                    <img src="~/Resources/Images/MenuIcon.png" style="width:32px;height:32px;" />
+                                </button>
+                            </div>
+                            <div id="menu-content" class="dropdown-content dropdown-align">
+                                <div><a href="/">Главная</a></div>
+                                <div><a href="/Home/Profile">Профиль</a></div>
+                                <div><a href="/Login/Logout">Выход</a></div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

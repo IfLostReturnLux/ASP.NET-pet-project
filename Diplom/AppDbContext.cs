@@ -29,7 +29,7 @@ namespace Diplom
             public string Role { get; set; }
             public string Name { get; set; }
         }
-        public class Roles
+        public class Role
         {
             public string Name { get; set; }
             public int Id { get; set; }
@@ -37,6 +37,6 @@ namespace Diplom
 
         public DbSet<LoginData> logindata { get; set; }
         public DbSet<UserData> users { get; set; }
-        public DbSet<Roles> rolelist { get; set; }
+        public DbSet<Role> rolelist { get; set; }
     }
 }
