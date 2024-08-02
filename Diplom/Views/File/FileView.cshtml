@@ -1,11 +1,9 @@
 ﻿@model FilePageModel
-@{
-    Layout = "_Layout";
-}
 
 <div class="file-viewer">
-    <div>
-        <p id="path">PATH:/</p>
+    <div id="path-container">
+        <p>PATH:</p>
+        <p id="path">@Model.Path</p>
     </div>
     <div id="files">
         @if (Model.DirectoriesName != null)
@@ -30,4 +28,4 @@
     </div>
 </div>
 
-<script src="/js/filePage.js" />
+<script src="/js/filesController.js"></script>

@@ -19,10 +19,10 @@ folders.forEach(function (folder) {
             url: '/File/ChangeDirectory',
             method: 'POST',
             data: folderPath + name,
-            success: function () {
-                console.log("Change Directory")
-            }
         })
+            .then(htmlContent => {
+                document.getElementById("#files").innerHTML = "";
+            })
         //fetch('/File/ChangeDirectory', {
         //    method: 'POST',
         //    headers: {

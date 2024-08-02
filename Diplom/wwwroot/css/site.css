@@ -398,27 +398,43 @@ main input {
     border: 2px solid #c8edef;
     height:800px;
 }
-.folder{
-    display:flex;
-    cursor:pointer;
+.folder {
+    display: flex;
+    cursor: pointer;
+
 }
     .folder img {
-        height:48px;
-        width:48px;
-        padding:5px;
+        height: 48px;
+        width: 48px;
+        padding: 5px;
     }
     .folder:hover {
         background: #2b3245;
     }
+
+.files {
+    display:block;
+}
+
 .file {
-    padding: 5px;
+    height: 48px;
+    padding-left: 10px;
     cursor: pointer;
+    padding-top:1px;
+    padding-bottom:5px;
 }
     .file:hover {
         background: #2b3245;
     }
+    .file #name{
 
-#path{
+    }
+
+#path-container{
     padding-left:10px;
     border-block-end:1px solid;
+    display:flex;
+}
+.options{
+    padding:10px;
 }
